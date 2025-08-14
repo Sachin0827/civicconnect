@@ -79,31 +79,31 @@ export function IssueCard({
   }
 
   return (
-    <Card className="mb-6 issue-card glass-card animate-fade-in-up">
-      <CardContent className="p-6">
-        <div className="flex items-start justify-between mb-3">
-          <div className="flex items-center space-x-3">
-            <Avatar className="h-8 w-8">
+    <Card className="mb-4 sm:mb-6 issue-card glass-card animate-fade-in-up mx-3 sm:mx-0">
+      <CardContent className="p-4 sm:p-6">
+        <div className="flex items-start justify-between mb-3 sm:mb-4">
+          <div className="flex items-center space-x-3 flex-1 min-w-0">
+            <Avatar className="h-8 w-8 sm:h-10 sm:w-10 flex-shrink-0">
               <AvatarImage src={issue.author.image || ''} alt={issue.author.name || ''} />
-              <AvatarFallback>{issue.author.name?.[0] || 'U'}</AvatarFallback>
+              <AvatarFallback className="text-sm">{issue.author.name?.[0] || 'U'}</AvatarFallback>
             </Avatar>
-            <div>
-              <p className="text-sm font-medium">{issue.author.name || 'Anonymous'}</p>
-              <p className="text-xs text-gray-500 flex items-center">
-                <Calendar className="w-3 h-3 mr-1" />
-                {formatRelativeTime(new Date(issue.createdAt))}
+            <div className="min-w-0 flex-1">
+              <p className="text-sm sm:text-base font-medium truncate">{issue.author.name || 'Anonymous'}</p>
+              <p className="text-xs sm:text-sm text-gray-500 flex items-center">
+                <Calendar className="w-3 h-3 mr-1 flex-shrink-0" />
+                <span className="truncate">{formatRelativeTime(new Date(issue.createdAt))}</span>
               </p>
             </div>
           </div>
-          <div className="flex items-center space-x-2">
-            <Badge className={getStatusColor(issue.status)}>
+          <div className="flex items-center space-x-2 flex-shrink-0 ml-2">
+            <Badge className={getStatusColor(issue.status) + " text-xs"}>
               {issue.status.replace('_', ' ')}
             </Badge>
             {isAdmin && (
               <select
                 value={issue.status}
                 onChange={(e) => handleStatusChange(e.target.value)}
-                className="text-xs border rounded px-2 py-1"
+                className="text-xs border rounded px-2 py-1 touch-manipulation"
               >
                 <option value="OPEN">Open</option>
                 <option value="IN_PROGRESS">In Progress</option>
@@ -120,36 +120,36 @@ export function IssueCard({
           </span>
         </div>
 
-        <h3 className="font-semibold text-lg mb-2">{issue.title}</h3>
-        <p className="text-gray-700 mb-3">{issue.description}</p>
+        <h3 className="font-semibold text-lg sm:text-xl mb-2 leading-tight">{issue.title}</h3>
+        <p className="text-gray-700 mb-3 sm:mb-4 text-sm sm:text-base leading-relaxed">{issue.description}</p>
 
         {issue.imageUrl && (
           <div className="mb-4 overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
             <img
               src={issue.imageUrl}
               alt="Issue"
-              className="w-full h-48 object-cover transition-transform duration-500 hover:scale-110"
+              className="w-full h-48 sm:h-56 object-cover transition-transform duration-500 hover:scale-110"
             />
           </div>
         )}
 
         {issue.address && (
-          <div className="flex items-center text-sm text-gray-500 mb-3">
-            <MapPin className="w-4 h-4 mr-1" />
+          <div className="flex items-start text-sm text-gray-500 mb-4">
+            <MapPin className="w-4 h-4 mr-2 mt-0.5 flex-shrink-0" />
             <button
               onClick={() => onLocationClick?.(issue.latitude, issue.longitude)}
-              className="text-blue-600 hover:underline"
+              className="text-blue-600 hover:underline touch-manipulation text-left"
             >
               {issue.address}
             </button>
           </div>
         )}
 
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between gap-3">
           <button
             onClick={handleVote}
             disabled={voting || !onVote}
-            className={`vote-btn ${hasVoted ? 'voted' : ''} ${voting ? 'opacity-75' : ''}`}
+            className={`vote-btn ${hasVoted ? 'voted' : ''} ${voting ? 'opacity-75' : ''} touch-manipulation flex-shrink-0`}
           >
             {showParticles && (
               <>
@@ -159,8 +159,8 @@ export function IssueCard({
                 <div className="particle"></div>
               </>
             )}
-            <Heart className={`w-5 h-5 heart-icon ${hasVoted ? 'liked' : ''} ${justVoted ? 'clicked' : ''}`} />
-            <span className={`vote-count ${justVoted ? 'animate' : ''}`}>
+            <Heart className={`w-5 h-5 sm:w-6 sm:h-6 heart-icon ${hasVoted ? 'liked' : ''} ${justVoted ? 'clicked' : ''}`} />
+            <span className={`vote-count ${justVoted ? 'animate' : ''} text-sm sm:text-base`}>
               {voteCount}
             </span>
           </button>
@@ -169,10 +169,10 @@ export function IssueCard({
             variant="ghost"
             size="sm"
             onClick={() => onLocationClick?.(issue.latitude, issue.longitude)}
-            className="btn-animate"
+            className="btn-animate touch-manipulation h-10 sm:h-9 px-3 sm:px-4 flex-1 sm:flex-initial justify-center sm:justify-start"
           >
-            <MapPin className="w-4 h-4 mr-1" />
-            View on Map
+            <MapPin className="w-4 h-4 mr-1 sm:mr-2" />
+            <span className="text-sm sm:text-base">View on Map</span>
           </Button>
         </div>
       </CardContent>

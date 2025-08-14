@@ -29,11 +29,11 @@ export default function Home() {
         onReportClick={() => setShowReportDialog(true)}
       />
       
-      <main className="p-4">
+      <main className="pb-4 sm:p-4">
         {currentView === 'feed' ? (
           <IssuesFeed onLocationClick={handleLocationClick} />
         ) : (
-          <div className="h-[calc(100vh-120px)] sm:h-[calc(100vh-80px)]">
+          <div className="h-[calc(100vh-140px)] sm:h-[calc(100vh-120px)] mx-3 sm:mx-0 rounded-lg sm:rounded-xl overflow-hidden">
             <IssuesMap
               centerLat={mapCenter.lat}
               centerLng={mapCenter.lng}

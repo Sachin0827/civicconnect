@@ -162,16 +162,16 @@ export function ReportIssueDialog({ isOpen, onClose, onIssueCreated }: ReportIss
   if (!isOpen) return null
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 animate-fade-in">
-      <Card className="w-full max-w-lg max-h-[90vh] overflow-y-auto animate-scale-in gpu-accelerated">
-        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-4">
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-3 sm:p-4 z-50 animate-fade-in">
+      <Card className="w-full max-w-lg max-h-[95vh] sm:max-h-[90vh] overflow-y-auto animate-scale-in gpu-accelerated">
+        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-3 sm:pb-4 px-4 sm:px-6 pt-4 sm:pt-6">
           <CardTitle className="text-lg">Report an Issue</CardTitle>
           <Button variant="ghost" size="sm" onClick={onClose}>
             <X className="h-4 w-4" />
           </Button>
         </CardHeader>
-        <CardContent>
-          <form onSubmit={handleSubmit} className="space-y-4">
+        <CardContent className="px-4 sm:px-6 pb-4 sm:pb-6">
+          <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
             <div>
               <Label htmlFor="title">Issue Title *</Label>
               <Input
@@ -181,6 +181,7 @@ export function ReportIssueDialog({ isOpen, onClose, onIssueCreated }: ReportIss
                 placeholder="Brief title for the issue"
                 maxLength={100}
                 required
+                className="h-12 sm:h-10 text-base sm:text-sm touch-manipulation"
               />
             </div>
 

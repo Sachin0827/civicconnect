@@ -81,17 +81,17 @@ export function IssuesFeed({ onLocationClick }: IssuesFeedProps) {
   }
 
   return (
-    <div className="max-w-2xl mx-auto">
+    <div className="max-w-2xl mx-auto px-3 sm:px-0">
       {/* Search and Filters */}
-      <div className="glass-card p-6 mb-6 animate-fade-in">
-        <div className="space-y-4">
+      <div className="glass-card p-4 sm:p-6 mb-4 sm:mb-6 animate-fade-in">
+        <div className="space-y-3 sm:space-y-4">
           <div className="relative">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-500 z-10" />
             <Input
               placeholder="Search issues..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="pl-12 pr-4 py-3 border-none bg-white/20 backdrop-blur-sm focus:bg-white/30 transition-all duration-300 rounded-xl"
+              className="pl-12 pr-4 py-3 sm:py-3 text-base sm:text-sm border-none bg-white/20 backdrop-blur-sm focus:bg-white/30 transition-all duration-300 rounded-xl h-12 sm:h-auto touch-manipulation"
             />
           </div>
           
@@ -100,7 +100,7 @@ export function IssuesFeed({ onLocationClick }: IssuesFeedProps) {
               variant="outline"
               size="sm"
               onClick={() => setShowFilters(!showFilters)}
-              className="btn-animate bg-white/10 border-white/20 hover:bg-white/20"
+              className="btn-animate bg-white/10 border-white/20 hover:bg-white/20 h-10 sm:h-9 px-4 touch-manipulation"
             >
               <Filter className="w-4 h-4 mr-2" />
               Filters
@@ -117,7 +117,7 @@ export function IssuesFeed({ onLocationClick }: IssuesFeedProps) {
                 <select
                   value={selectedCategory}
                   onChange={(e) => setSelectedCategory(e.target.value)}
-                  className="w-full border-none rounded-xl px-4 py-3 text-sm bg-white/30 backdrop-blur-sm focus:bg-white/40 transition-all duration-300"
+                  className="w-full border-none rounded-xl px-4 py-3 sm:py-3 text-base sm:text-sm bg-white/30 backdrop-blur-sm focus:bg-white/40 transition-all duration-300 h-12 sm:h-auto touch-manipulation"
                 >
                   {categories.map((cat) => (
                     <option key={cat.value} value={cat.value}>
@@ -132,7 +132,7 @@ export function IssuesFeed({ onLocationClick }: IssuesFeedProps) {
                 <select
                   value={selectedStatus}
                   onChange={(e) => setSelectedStatus(e.target.value)}
-                  className="w-full border-none rounded-xl px-4 py-3 text-sm bg-white/30 backdrop-blur-sm focus:bg-white/40 transition-all duration-300"
+                  className="w-full border-none rounded-xl px-4 py-3 sm:py-3 text-base sm:text-sm bg-white/30 backdrop-blur-sm focus:bg-white/40 transition-all duration-300 h-12 sm:h-auto touch-manipulation"
                 >
                   {statuses.map((status) => (
                     <option key={status.value} value={status.value}>
