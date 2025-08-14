@@ -70,7 +70,7 @@ export function IssuesFeed({ onLocationClick }: IssuesFeedProps) {
     return matchesCategory && matchesStatus && matchesSearch
   })
 
-  const isAdmin = mockUser.role === 'ADMIN' // Demo user is not admin
+  const isAdmin = false // Demo user is not admin
 
   if (loading) {
     return (

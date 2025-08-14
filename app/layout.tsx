@@ -6,6 +6,7 @@ import { Toaster } from '@/components/ui/toaster'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://civicconnect.vercel.app'),
   title: 'CivicConnect - Community Problem Solving',
   description: 'Connect your community, report issues, and make your voice heard. A platform for civic engagement and community problem-solving.',
   keywords: 'civic engagement, community issues, problem solving, local government, community reporting',
