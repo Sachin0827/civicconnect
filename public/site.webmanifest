@@ -1,0 +1,26 @@
+{
+  "name": "CivicConnect - Community Problem Solving",
+  "short_name": "CivicConnect",
+  "description": "Connect your community, report issues, and make your voice heard",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#667eea",
+  "theme_color": "#667eea",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/favicon.ico",
+      "sizes": "32x32",
+      "type": "image/x-icon"
+    }
+  ],
+  "categories": ["government", "social", "utilities"],
+  "lang": "en",
+  "dir": "ltr"
+}
